@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from utils.base_model import BaseModel
 import uuid
 
 
@@ -8,7 +9,7 @@ class UserManagerModel(BaseUserManager):
     ...
 
 
-class UserModel(AbstractBaseUser, PermissionsMixin):
+class UserModel(AbstractBaseUser, PermissionsMixin, BaseModel):
     email = models.EmailField(verbose_name='email', max_length=100, unique=True)
     name = models.CharField(max_length=60, null=False, help_text='nome')
     phone = models.CharField(max_length=60, blank=True, null=True)
