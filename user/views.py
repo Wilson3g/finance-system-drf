@@ -5,6 +5,10 @@ from user.serializers import UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    Create new users on the app.
+
+    """
     model = UserModel
     serializer_class = UserSerializer
     permission_classes = (permissions.AllowAny,)

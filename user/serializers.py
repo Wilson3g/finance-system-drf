@@ -3,6 +3,10 @@ from user.models import UserModel
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializer the user data
+
+    """
     class Meta:
         model = UserModel
         fields = ('id', 'email', 'name', 'password', 'phone')
@@ -13,6 +17,10 @@ class UserSerializer(serializers.ModelSerializer):
         }
 
     def save(self):
+        """
+        Create a new user
+
+        """
         password = self.validated_data['password']
         phone = self.validated_data.pop('phone', None)
         u = UserModel(
